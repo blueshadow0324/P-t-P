@@ -1,0 +1,34 @@
+import time
+import random
+
+primes = []
+def prime(numb):
+    div = 0
+    for i in range(1, numb+1):
+          if numb%i == 0:
+             div += 1
+    if div == 2:
+        primes.append(numb)
+        return True
+    else:
+        return False
+       
+ts = time.time()
+for i in range(1, 10000):
+    if prime(i) == True:
+        print(i, "is a prime number")
+te = time.time()
+tt = (te - ts)
+print("total time", tt)
+
+pr_numb = primes[random.randint(0, 999)] * primes[random.randint(0, 999)]
+list_leng = len(primes)
+
+ts = time.time()
+for i in range(0, list_leng):
+    for j in range(0, list_leng):
+        if primes[j] * primes[i] == pr_numb:
+            print(primes[j], "and", primes[i])
+te = time.time()
+print("Total time:", te -ts)
+    
